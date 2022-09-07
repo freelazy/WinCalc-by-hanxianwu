@@ -18,21 +18,21 @@ namespace CmputeMachine
         private void btn0_Click(object sender, EventArgs e)
         {
             //判断上一步是否为 + - * /
-            if (biaoji==1)
+            if (biaoji == 1)
             {
                 txtResult.Text = "0";
                 biaoji = 0;
             }
             //判断上一步是否为 =
-            if (biaoji==2)
+            if (biaoji == 2)
             {
                 txtResult.Text = "0";
                 txtAlgorithm.Text = "";
                 biaoji = 0;
             }
-           Button btn = (Button) sender;
+            Button btn = (Button)sender;
             //判断是否为0
-            if (txtResult.Text=="0")
+            if (txtResult.Text == "0")
             {
                 txtResult.Text = btn.Text;
             }
@@ -61,20 +61,20 @@ namespace CmputeMachine
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtResult.Text.Substring(txtResult.Text.Length-1)==btnDian.Text)
+            if (txtResult.Text.Substring(txtResult.Text.Length - 1) == btnDian.Text)
             {
-                txtResult.Text= txtResult.Text.Substring(0, txtResult.Text.Length - 1);
+                txtResult.Text = txtResult.Text.Substring(0, txtResult.Text.Length - 1);
             }
-            Button btn= (Button) sender;
+            Button btn = (Button)sender;
             //判断计算框是否不为空
-            if (txtAlgorithm.Text!="")
+            if (txtAlgorithm.Text != "")
             {
                 decimal dc = JiSuan();
                 txtResult.Text = dc.ToString();
 
             }
             txtAlgorithm.Text = txtResult.Text + btn.Text;
-            
+
             //加减乘除标记为1
             biaoji = 1;
         }
@@ -86,7 +86,7 @@ namespace CmputeMachine
         /// <param name="e"></param>
         private void btnResult_Click(object sender, EventArgs e)
         {
-            decimal dc= JiSuan();
+            decimal dc = JiSuan();
             txtAlgorithm.Text = txtAlgorithm.Text + txtResult.Text + btnResult.Text;
             txtResult.Text = dc.ToString();
             biaoji = 2;
@@ -100,7 +100,7 @@ namespace CmputeMachine
         private void btnYu_Click(object sender, EventArgs e)
         {
             //判断输入框长度是否为1
-            if (txtResult.Text.Length==1)
+            if (txtResult.Text.Length == 1)
             {
                 txtResult.Text = "0";
             }
